@@ -1,10 +1,11 @@
-import urllib2
-import json
+from apiclient import discovery
 
-api_key ='ohadsonascoqjasdpkqwmas'
-url = 'https://api.openweathermap.org/data/2.5/weather?q=Nairobi'
-json_obj = urllib2.urlopen(url)
-data = json.load(json_obj)
+API_KEY = 'AIzaSyAkDA0SPfM3Tq5tPqxWBSb4_HjCGkJV0v0'
+items = GPLUS.activities().search(query='python').execute().get('items', [])
 
-print (data)
+for data in items:
+    post = ' '.join(data['title'].strip().split())
+    if post:
+        print(TMPL % (data['actor']['displayName'],
+            data['published'], post))
 
