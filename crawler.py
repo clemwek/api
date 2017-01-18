@@ -1,10 +1,10 @@
-from urllib2 import requests
-from lxml import html
+import urllib2
+import json
 
-page = requests.get("http://www.example.com").text
-doc = html.fromstring(page)
-link = doc.cssselect("a")[0]
-print(link.text_content())
-# More information...
-print(link.attrib['href'])
-# http://www.iana.org/domains/example
+api_key ='ohadsonascoqjasdpkqwmas'
+url = 'https://api.openweathermap.org/data/2.5/weather?q=Nairobi'
+json_obj = urllib2.urlopen(url)
+data = json.load(json_obj)
+
+print (data)
+
